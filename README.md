@@ -1,2 +1,403 @@
 # pc17static
 Sitio web oficial de PC17STATIC, enfocado en soporte técnico, ensamblaje y optimización de computadoras en Costa Rica.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PC17STATIC | Soporte Técnico</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+oilkl/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #020617, #0f172a);
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  padding: 130px 20px 80px;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  overflow: hidden;
+}
+
+header h1 {
+  font-size: 4rem;
+  color: #38bdf8;
+  text-shadow: 0 0 25px #38bdf8, 0 0 45px #0ea5e9;
+}
+
+header p {
+  color: #bae6fd;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+/* ===== BOTON WHATSAPP HEADER ===== */
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 30px;
+  background: linear-gradient(45deg, #25d366, #16a34a);
+  color: #020617;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(37,211,102,.6);
+  transition: transform .3s, box-shadow .3s;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(37,211,102,.9);
+}
+
+/* ===== GOKU TECNICO ===== */
+.goku-container {
+  position: absolute;
+  left: 30px;
+  top: 220px;
+  width: 200px;
+  z-index: 10;
+}
+.goku {
+  width: 120px;
+  animation: float 3s ease-in-out infinite;
+  position: relative;
+}
+.goku::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(circle, rgba(56,189,248,.9), transparent 70%);
+  filter: blur(18px);
+  animation: aura 2s infinite alternate;
+  z-index: -1;
+}
+.hair {
+  height: 60px;
+  background: linear-gradient(#7dd3fc, #0ea5e9);
+  clip-path: polygon(50% 0%, 65% 20%, 85% 35%, 100% 45%, 75% 60%, 60% 35%, 40% 60%, 25% 35%, 0% 45%);
+}
+.head {
+  width: 80px;
+  height: 80px;
+  background: #fbd2b5;
+  border-radius: 50%;
+  margin: -10px auto 0;
+  position: relative;
+}
+.eye {
+  width: 10px;
+  height: 10px;
+  background: #020617;
+  border-radius: 50%;
+  position: absolute;
+  top: 36px;
+}
+.eye.left { left: 22px; }
+.eye.right { right: 22px; }
+.body {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #1e40af, #0ea5e9);
+  border-radius: 16px;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 0 25px rgba(56,189,248,.7);
+}
+.laptop {
+  width: 60px;
+  height: 40px;
+  background: #020617;
+  border: 2px solid #38bdf8;
+  border-radius: 6px;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+.arm {
+  width: 80px;
+  height: 12px;
+  background: #fbd2b5;
+  position: absolute;
+  right: -75px;
+  top: 22px;
+  transform: rotate(-12deg);
+  border-radius: 6px;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes aura {
+  from { opacity: .6; }
+  to { opacity: 1; }
+}
+
+/* ===== SECCIONES ===== */
+section {
+  padding: 70px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+h2 {
+  color: #38bdf8;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+/* ===== SERVICIOS ===== */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: rgba(15,23,42,.95);
+  border: 1px solid rgba(56,189,248,.4);
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(56,189,248,.15);
+  transition: .3s;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px rgba(56,189,248,.7);
+}
+.card .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 22px;
+  background: linear-gradient(45deg, #38bdf8, #0ea5e9);
+  color: #020617;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ===== PRECIOS DETALLADOS ===== */
+.price-detail {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.price-detail span {
+  color: #ffcc00;
+  font-weight: bold;
+}
+.time {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+.badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  color: #020617;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* ===== BOTON FLOTANTE ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: #020617;
+  padding: 16px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(37,211,102,.8);
+  z-index: 999;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #020617;
+  color: #94a3b8;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>PC17STATIC</h1>
+  <p>Soporte técnico moderno • Soluciones reales</p>
+
+  <a class="whatsapp-btn" href="https://wa.me/50670717975" target="_blank">
+    💬 Escríbeme por WhatsApp
+  </a>
+
+  <div class="goku-container">
+    <div class="goku">
+      <div class="hair"></div>
+      <div class="head">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+      </div>
+      <div class="body">
+        <div class="arm"></div>
+        <div class="laptop"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <h2>Precios</h2>
+
+  <div class="services">
+
+    <div class="card">
+      <h3>🧩 Ensamblaje de computadoras</h3>
+      <div class="price-detail">
+        Incluye armado completo del equipo, compatibilidad de componentes,
+        cableado correcto, ventilación adecuada y pruebas.
+        <br><br>
+        <span>¿Por qué se cobra?</span>  
+        Requiere conocimiento técnico y cuidado del hardware.
+      </div>
+      <div class="time">⏱ 1 a 2 horas</div>
+      <div class="badge">Servicio profesional</div>
+      <p><strong>₡10 000 – ₡25 000</strong></p>
+      <a class="btn" href="https://wa.me/50670717975">Solicitar</a>
+    </div>
+
+    <div class="card">
+      <h3>🧹 Mantenimiento y limpieza</h3>
+      <div class="price-detail">
+        Limpieza profunda interna para reducir temperaturas y mejorar rendimiento.
+        <br><br>
+        <span>¿Por qué se cobra?</span>  
+        Se desmontan piezas delicadas y se usan materiales adecuados.
+      </div>
+      <div class="time">⏱ 1 a 2 horas</div>
+      <div class="badge">Cada 6 meses</div>
+      <p><strong>₡8 000 – ₡25 000</strong></p>
+      <a class="btn" href="https://wa.me/50670717975">Solicitar</a>
+    </div>
+
+    <div class="card">
+      <h3>💾 Software y optimización</h3>
+      <div class="price-detail">
+        Instalación de sistema operativo, drivers y optimización general.
+        <br><br>
+        <span>¿Por qué se cobra?</span>  
+        Configuración manual y pruebas.
+      </div>
+      <div class="time">⏱ 1 a 3 horas</div>
+      <div class="badge">Equipo rápido</div>
+      <p><strong>₡5 000 – ₡15 000</strong></p>
+      <a class="btn" href="https://wa.me/50670717975">Solicitar</a>
+    </div>
+
+    <div class="card">
+      <h3>🔧 Upgrades y ajustes</h3>
+      <div class="price-detail">
+        Instalación de RAM, SSD y configuración correcta.
+      </div>
+      <div class="time">⏱ 30 a 60 min</div>
+      <div class="badge">Mejora inmediata</div>
+      <p><strong>₡5 000 – ₡15 000</strong></p>
+      <a class="btn" href="https://wa.me/50670717975">Solicitar</a>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Diagnóstico</h3>
+      <div class="price-detail">
+        Revisión completa del equipo.
+        <br><br>
+        <span>Importante:</span>  
+        Se descuenta si realizas el servicio.
+      </div>
+      <div class="time">⏱ 30 a 60 min</div>
+      <div class="badge">Transparente</div>
+      <p><strong>₡5 000 – ₡8 000</strong></p>
+      <a class="btn" href="https://wa.me/50670717975">Solicitar</a>
+    </div>
+
+    <div class="card">
+      <h3>📩 Cotizaciones</h3>
+      <div class="price-detail">
+        <p><strong>Gratis: Cotizaciones</strong></p>
+        <p><strong>¿Cómo funciona la cotización?</strong></p>
+        <p>Cada cotización se realiza de forma personalizada, según las necesidades del equipo y el servicio solicitado.</p>
+        <p>El precio incluye únicamente la mano de obra del servicio técnico. Los componentes y licencias de software deben ser proporcionados por el cliente.</p>
+        <p>Antes de iniciar cualquier trabajo, se informa el costo total y no se realizan cargos adicionales sin autorización previa.</p>
+        <p>Los precios pueden variar según la complejidad del equipo y el tiempo requerido para el servicio.</p>
+      </div>
+      <div class="time">—</div>
+      <div class="badge">Gratis</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contacto</h2>
+
+  <div class="services">
+    <div class="card">
+      <form id="contactForm" onsubmit="sendWhatsApp(event)">
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <label style="font-weight:bold;">Nombre
+            <input id="c_name" type="text" required placeholder="Tu nombre" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(56,189,248,.2);background:transparent;color:inherit;">
+          </label>
+
+          <label style="font-weight:bold;">Número
+            <input id="c_phone" type="tel" required placeholder="Ej: +50612345678" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(56,189,248,.2);background:transparent;color:inherit;">
+          </label>
+
+          <label style="font-weight:bold;">Mensaje
+            <textarea id="c_msg" required placeholder="Escribe tu mensaje..." rows="5" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(56,189,248,.2);background:transparent;color:inherit;"></textarea>
+          </label>
+
+          <button type="submit" class="btn" style="align-self:flex-start;">Enviar por WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<a class="whatsapp-float" href="https://wa.me/50670717975" target="_blank">
+💬 WhatsApp
+</a>
+
+<footer>
+© 2025 PC17STATIC • Soporte Técnico
+</footer>
+
+<script>
+function sendWhatsApp(e){
+  e.preventDefault();
+  var name = document.getElementById('c_name').value.trim();
+  var phone = document.getElementById('c_phone').value.trim();
+  var msg = document.getElementById('c_msg').value.trim();
+  if(!name || !phone || !msg){
+    alert('Por favor completa todos los campos.');
+    return;
+  }
+  var text = 'Hola, soy ' + name + ' (' + phone + '). ' + msg;
+  var url = 'https://wa.me/50670717975?text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
